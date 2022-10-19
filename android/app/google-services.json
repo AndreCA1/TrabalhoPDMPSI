@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "469419267631",
+    "project_id": "projetofinalpdmepsi",
+    "storage_bucket": "projetofinalpdmepsi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469419267631:android:3616528a2be49b645ad8da",
+        "android_client_info": {
+          "package_name": "br.com.salati.gerenciadortarefas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469419267631-h11t99qqe28jkl5mnqk3be2jcff35k7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnfRSyni3wubqAYsxfCZdtbDB9Q7Us2E4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469419267631-h11t99qqe28jkl5mnqk3be2jcff35k7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
