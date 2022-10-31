@@ -17,24 +17,15 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -52,11 +43,41 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyB6CqAC39NECi4BS4LIprds82NgjcvHiFM',
+    appId: '1:469419267631:web:f48529c022bc2da45ad8da',
+    messagingSenderId: '469419267631',
+    projectId: 'projetofinalpdmepsi',
+    authDomain: 'projetofinalpdmepsi.firebaseapp.com',
+    storageBucket: 'projetofinalpdmepsi.appspot.com',
+    measurementId: 'G-33TKC0YJJN',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCnfRSyni3wubqAYsxfCZdtbDB9Q7Us2E4',
     appId: '1:469419267631:android:3616528a2be49b645ad8da',
     messagingSenderId: '469419267631',
     projectId: 'projetofinalpdmepsi',
     storageBucket: 'projetofinalpdmepsi.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyBmcQHWmRu-_RQCzS3YG7oAuTShAqcAot4',
+    appId: '1:469419267631:ios:3ed80cd46749a2425ad8da',
+    messagingSenderId: '469419267631',
+    projectId: 'projetofinalpdmepsi',
+    storageBucket: 'projetofinalpdmepsi.appspot.com',
+    iosClientId: '469419267631-bppeid9569pql5ti21dle7raeem6b3cp.apps.googleusercontent.com',
+    iosBundleId: 'br.com.salati.gerenciadortarefas',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBmcQHWmRu-_RQCzS3YG7oAuTShAqcAot4',
+    appId: '1:469419267631:ios:3ed80cd46749a2425ad8da',
+    messagingSenderId: '469419267631',
+    projectId: 'projetofinalpdmepsi',
+    storageBucket: 'projetofinalpdmepsi.appspot.com',
+    iosClientId: '469419267631-bppeid9569pql5ti21dle7raeem6b3cp.apps.googleusercontent.com',
+    iosBundleId: 'br.com.salati.gerenciadortarefas',
   );
 }
