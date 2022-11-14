@@ -12,11 +12,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(
-        'Bem vindo a HomePage',
-        style: TextStyle(color: Colors.black),
-      ),
+    return Scaffold(
+    appBar: AppBar(
+      title: Text("Bem vindo"),
+    ),
     );
+
   }
 }

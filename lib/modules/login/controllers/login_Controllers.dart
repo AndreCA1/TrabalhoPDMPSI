@@ -27,16 +27,14 @@ class LoginController {
     }
   }
 
-  String? validarEmail(String value) {
+  bool? validarEmail(String value) {
     String pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regExp = RegExp(pattern);
-    if (value.isEmpty) {
-      return "Informe o E-mail";
-    } else if (!regExp.hasMatch(value)) {
-      return "E-mail inválido";
+      if (!regExp.hasMatch(value)) {
+      return false;
     } else {
-      return null;
+      return true;
     }
   }
 }

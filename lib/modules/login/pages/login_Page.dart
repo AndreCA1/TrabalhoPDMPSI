@@ -12,8 +12,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _fromState = GlobalKey<FormState>();
-
   final _formKey = GlobalKey<FormState>();
   final _controller = LoginController();
   @override
@@ -51,11 +49,14 @@ class _LoginPageState extends State<LoginPage> {
                     const EdgeInsets.symmetric(horizontal: 45, vertical: 15),
                 child: TextFormField(
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Vazio";
+                    if (value!.isEmpty) {
+                      return 'E-mail não informado';
+                    } else if (_controller.validarEmail(value) != true) {
+                      return ("E-mail inválido");
+                    } else {
+                      return null;
                     }
                   },
-                  // validator: (value) => _controller.validarEmail(value!),
                   controller: _controller.email,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
@@ -83,6 +84,13 @@ class _LoginPageState extends State<LoginPage> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 45, vertical: 15),
                 child: TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Senha não informada';
+                    } else {
+                      return null;
+                    }
+                  },
                   controller: _controller.senha,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
@@ -104,11 +112,11 @@ class _LoginPageState extends State<LoginPage> {
                                 RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                     ))),
-                    onPressed: () {
-                      if (_fromState.currentState!.validate()) {}
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {}
 
-                      /*await _controller.login(_controller.email.text,
-                            _controller.senha.text, context);*/
+                      await _controller.login(_controller.email.text,
+                          _controller.senha.text, context);
                     },
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 14),
