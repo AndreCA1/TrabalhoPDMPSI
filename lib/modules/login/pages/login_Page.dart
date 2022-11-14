@@ -12,6 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool obscure = true;
   final _formKey = GlobalKey<FormState>();
   final _controller = LoginController();
   @override
@@ -21,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
           title: const Center(
               child: Text(
             "Acesse sua conta",
-            style: TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
           )),
           toolbarHeight: 105,
         ),
@@ -62,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15))),
                   ),
-                  keyboardType: TextInputType.text,
+                  keyboardType: TextInputType.emailAddress,
                 ),
               ),
               const SizedBox(
@@ -84,6 +85,24 @@ class _LoginPageState extends State<LoginPage> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 45, vertical: 15),
                 child: TextFormField(
+                  obscureText: obscure,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          obscure = !obscure;
+                        });
+                      },
+                      icon: Icon(
+                        obscure == true
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Theme.of(context).primaryColorDark,
+                      ),
+                    ),
+                  ),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Senha não informada';
@@ -92,11 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                     }
                   },
                   controller: _controller.senha,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                  ),
-                  keyboardType: TextInputType.text,
+                  keyboardType: TextInputType.visiblePassword,
                 ),
               ),
               const SizedBox(
@@ -113,10 +128,10 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(18.0),
                     ))),
                     onPressed: () async {
-                      if (_formKey.currentState!.validate()) {}
-
-                      await _controller.login(_controller.email.text,
-                          _controller.senha.text, context);
+                      if (_formKey.currentState!.validate()) {
+                        await _controller.login(_controller.email.text,
+                            _controller.senha.text, context);
+                      }
                     },
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 14),
@@ -132,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const CadastroPage()));
                   },
                   child: Text(
