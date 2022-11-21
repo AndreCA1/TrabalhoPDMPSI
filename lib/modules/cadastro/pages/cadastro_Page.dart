@@ -23,9 +23,11 @@ class _CadastroPageState extends State<CadastroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: (){
-          Navigator.pop(context);
-        }, icon: const Icon(Icons.arrow_back_ios)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
         toolbarHeight: 105,
         backgroundColor: Colors.blue,
         title: const Center(
@@ -45,7 +47,7 @@ class _CadastroPageState extends State<CadastroPage> {
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Nome',
-                hintStyle: TextStyle(color: Colors.purple),
+                hintStyle: TextStyle(color: Colors.blue),
                 label: Text("Nome:"),
                 prefixIcon: Icon(Icons.person),
                 fillColor: Colors.white,
@@ -61,7 +63,7 @@ class _CadastroPageState extends State<CadastroPage> {
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Email',
-                hintStyle: TextStyle(color: Colors.purple),
+                hintStyle: TextStyle(color: Colors.blue),
                 label: Text("Email:"),
                 prefixIcon: Icon(Icons.email),
                 fillColor: Colors.white,
@@ -77,7 +79,7 @@ class _CadastroPageState extends State<CadastroPage> {
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Senha',
-                hintStyle: TextStyle(color: Colors.purple),
+                hintStyle: TextStyle(color: Colors.blue),
                 label: Text("Senha:"),
                 prefixIcon: Icon(Icons.key),
                 fillColor: Colors.white,
