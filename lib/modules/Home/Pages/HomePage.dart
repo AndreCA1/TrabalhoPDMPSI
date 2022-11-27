@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                                                         .showSnackBar(
                                                             const SnackBar(
                                                                 content: Text(
-                                                                    "Tarefa foi deletada."),
+                                                                    "Essa tarefa foi deletada."),
                                                                 backgroundColor:
                                                                     Colors
                                                                         .red));
